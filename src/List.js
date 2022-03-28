@@ -1,12 +1,7 @@
-import { useEffect, useState } from 'react';
-import { getLOTRCharacters } from './api';
+import { useCharacters } from './hooks';
 
 export const List = ({ limit }) => {
-  const [characters, setCharacters] = useState([]);
-  
-  useEffect(() => {
-    getLOTRCharacters(limit).then((newCharacters) => setCharacters(newCharacters));
-  }, [limit]);
+  const characters = useCharacters(limit);
 
   return (
     <div>
