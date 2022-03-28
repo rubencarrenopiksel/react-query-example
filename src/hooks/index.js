@@ -4,8 +4,9 @@ import { getLOTRCharacters } from '../api';
 export const useCharacters = (limit) => {
   const { data: characters } = useQuery({
     queryKey: ['characters', limit],
-    queryFn: () => getLOTRCharacters(limit), 
-    initialData: [],
+    queryFn: () => getLOTRCharacters(limit),
+    keepPreviousData: true,
+    placeholderData: [],
   });
   return characters;
 }
